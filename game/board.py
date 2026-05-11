@@ -6,9 +6,6 @@ class DrunkChessGame:
         self.real_board = chess.Board()
 
     def process_turn(self, move_uci: str) -> tuple[bool, str, bool]:
-        """
-        Returns: (is_legal_on_real_board, display_move_uci, needs_reveal)
-        """
         try:
             move = chess.Move.from_uci(move_uci)
         except ValueError:
