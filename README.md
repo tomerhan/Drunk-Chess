@@ -1,15 +1,20 @@
-# Drunk Chess ♟️🍺
+# Drunk Chess ♟️🥴
 
-Drunk Chess is a unique and chaotic Python-based chess variant. The core mechanic: **5% of all moves are visual lies.**
+A Python-based chess variant where the board is an unreliable narrator. Built with Pygame and `python-chess`, the game frequently generates visual lies, forcing players to track the true state of the game in their heads.
 
-Both Human and AI players maintain a "Belief Board" based on what they see. However, the game engine silently maintains a "True Board". If a player attempts a move that is legal on their Belief Board but illegal on the True Board, a **Reveal** is triggered, forcing the player to sync with reality and calculate a new move.
+## ✨ Features
 
-## Features
-*   **True State vs. Display State:** Complete separation of concerns between game logic and the UI/Belief state.
-*   **AI Support (Stockfish):** The AI also falls victim to the visual lies and has to re-evaluate its strategy upon a Reveal.
-*   **Unit Tested:** Core mechanics and probability logic are covered by automated tests.
+* **Visual Lies:** Up to 40% of displayed moves are "hallucinations" (random legal moves that weren't actually played), indicated by a glowing purple aura.
+* **The "Reveal" Mechanic:** Attempting an illegal move because you fell for a visual lie halts the game, flashes a warning, and forces the board to sync with reality.
+* **Auto-Asset Management:** High-quality piece graphics are automatically downloaded and cached on the first run.
+* **Cross-Platform:** Optimized for both desktop and mobile environments (including Android via Pydroid 3) with dynamic screen scaling and centering.
 
-## Requirements
+## ⚙️ Installation
+
+1. Clone this repository or download the source code.
+2. Install the required dependencies:
+   ```bash
+   pip install -r requirements.txt
 *   Python 3.10+
 *   [python-chess](https://python-chess.readthedocs.io/)
 *   (Optional) [Stockfish](https://stockfishchess.org/) executable for AI gameplay.
@@ -18,6 +23,19 @@ Both Human and AI players maintain a "Belief Board" based on what they see. Howe
 
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/YOUR-USERNAME/drunk-chess.git](https://github.com/YOUR-USERNAME/drunk-chess.git)
+   git clone [https://github.com/tomerhan/drunk-chess.git](https://github.com/tomerhan/drunk-chess.git)
    cd drunk-chess
-   
+
+🚀 Quick Start
+​Run the game directly from your terminal:
+
+python main.py
+How to Play:
+​You play as White, the engine plays as Black.
+​Click a piece to see its valid moves, then click a highlighted square to move.
+​Watch out for the "VISUAL LIE!" warning. If you lose track of the real board and attempt an invalid move, the game will trigger a REVEAL to restore reality, and you must try your turn again.
+​Play continues until a Checkmate or Stalemate is reached on the true board.
+​🛠️ Built With
+​Python 3
+​Pygame
+​python-chess
