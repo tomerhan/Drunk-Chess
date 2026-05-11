@@ -3,12 +3,14 @@ import random
 
 class MobileAI:
     def __init__(self):
+        # AI works on its own beliefs
         self.belief_board = chess.Board()
 
-    def get_move(self) -> str:
+    def get_move(self):
         legal_moves = list(self.belief_board.legal_moves)
         if not legal_moves:
             return ""
+        # Choose a random legal move
         return random.choice(legal_moves).uci()
 
     def sync_board(self, uci_move: str):
